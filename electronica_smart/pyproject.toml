@@ -2,28 +2,25 @@
 name = "electronica_smart"
 version = "0.1.0"
 description = "Proyecto de gestión de dispositivos inteligentes"
-authors = ["Daniel Buzón Fernández <danibuzon28@gmail.com>"]
+authors = ["Daniel Buzón"]
 license = "MIT"
-packages = [
-    {include = "app"}
-]
-
+packages = [{ include = "app" }]
 
 [tool.poetry.dependencies]
 python = "^3.11"
-fastapi = {extras = ["all"], version = "^0.128.0"}
+fastapi = { extras = ["all"], version = "^0.128.0" }
 uvicorn = "^0.29.0"
 sqlalchemy = "^2.0.25"
 pydantic = "^2.6.1"
 pydantic-settings = "^2.2.1"
 python-dotenv = "^1.0.1"
-passlib = {extras = ["bcrypt"], version = "^1.7.4"}
+passlib = { extras = ["bcrypt"], version = "^1.7.4" }
 python-jose = "^3.5.0"
+bcrypt = "4.0.1"
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev.dependencies]
 pytest = "^8.0.0"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
-

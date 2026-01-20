@@ -1,5 +1,4 @@
 from app.db.session import engine
-from app.models.smart_device import SmartDevice
 from app.db.base import Base
 
 # Mostrar la URL de conexión para depuración
