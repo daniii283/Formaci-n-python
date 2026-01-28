@@ -1,6 +1,11 @@
 from pydantic import BaseModel
-from typing import Literal
+from typing import Optional
 
 class SimulationInput(BaseModel):
-    temperature: float
-    unit: Literal["ºC", "K", "ºF"]
+   temperature: Optional[float] = None
+   battery_level: Optional[float] = None
+   is_online: Optional[bool] = None
+   status: Optional[bool] = None
+   unit: Optional[str] = "ºC" #default
+
+   

@@ -11,10 +11,19 @@ def register_user(db: Session, user_data: UserCreate):
     hashed_password = get_password_hash(user_data.password)
     return repo.create_user(db, user_data, hashed_password)
 
-def login_user(db: Session, username: str, password: str):
-    user = repo.get_user_by_name(db, username)
+
+def login_user(db: Session, email: str, password: str):
+    user = repo.get_user_by_email(db, email)
+
     if not user or not verify_password(password, user.hashed_password):
-        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail = "Invalid credentials")
-    
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Invalid credentials"
+        )
+
     token = create_access_token({"sub": user.username})
-    return {"access_token": token, "token_type": "bearer"}
+    return {
+        "access_token": token,
+        "token_type": "bearer"
+    }
+

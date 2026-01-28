@@ -1,0 +1,23 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Orbitron:wght@700;900&display=swap');
+
+@layer base {
+  body { margin: 0; background: #000; font-family: 'Rajdhani', sans-serif; overflow: hidden; }
+}
+
+@layer utilities {
+  .stage-3d { position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; }
+  .login-card { border-radius: 40px; }
+  h1 { font-family: 'Orbitron', sans-serif !important; }
+
+  .animate-shake {
+    animation: shake 0.4s cubic-bezier(.36,.07,.19,.97) both;
+  }
+
+  @keyframes shake {
+    10%, 90% { transform: translate3d(-1px, 0, 0); }
+    20%, 80% { transform: translate3d(2px, 0, 0); }
+    30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+    40%, 60% { transform: translate3d(4px, 0, 0); }
+  }
+}
